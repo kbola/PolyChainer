@@ -39,7 +39,7 @@ If the 'Voice Index' is greater than the 'Group Polyphony', it won't be triggere
 # HOW TO INSTALL:
 
 Install PolyChainer on your system by placing the PolyChainer.pst file in:
-/Users/<your username>/Music/Audio Music Apps/Plug-In Settings/
+/Users/<your username>/Music/Audio Music Apps/Plug-In Settings/Scripter/
 
 # HOW TO USE:
 
