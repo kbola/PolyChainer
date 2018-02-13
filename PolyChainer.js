@@ -11,7 +11,7 @@ of a single polyphonic synth.
 
 Here's whats happening:
 
-Logic X lets you create 'Track Stacks' that are groups of idividual instruments.
+Logic X lets you create 'Track Stacks' that are groups of individual instruments.
 
 The Track Stack allows us to easily send the same MIDI info to all of the 
 instruments in the stack at once.
