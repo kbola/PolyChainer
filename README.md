@@ -1,7 +1,5 @@
 # PolyChainer
 
-Logic Pro X MIDI FX Plugin for polychaining multiple instruments
-
 PolyChainer BETA 0.0.1
 by Karl Scholz
 Bolasol, Inc.
@@ -10,14 +8,14 @@ INTRO:
 PolyChainer lets you play multiple instrument channels in Logic X as if they were voices
 of a single polyphonic instrument. 
 
-Back story:
+# Back story:
 
 Logic X lets you create 'Track Stacks' that are groups of individual instruments.
 
 The Track Stack allows us to easily send the same MIDI info to all of the 
 instruments in the stack at once.
 
-Enter PolyChainer:
+# Enter PolyChainer:
 
 PolyChainer sits on each track and has a kind of 'quite understanding' as to how it should behave. 
 
@@ -38,12 +36,12 @@ Channels with the same "Group Polyphony" and 'Voice Index' will trigger at the s
 
 If the 'Voice Index' is greater than the 'Group Polyphony', it won't be triggered. 
 
-HOW TO INSTALL:
+# HOW TO INSTALL:
 
 Install PolyChainer on your system by placing the PolyChainer.pst file in:
 /Users/<your username>/Music/Audio Music Apps/Plug-In Settings/
 
-HOW TO USE:
+# HOW TO USE:
 
 1) Create a track stack of the instruments that you want to polychain.
 
