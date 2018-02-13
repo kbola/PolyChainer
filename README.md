@@ -55,10 +55,7 @@ dropdown menu.
 
 4) Set the 'Group Polyphony' to the number of tracks in your stack.
 
-5) Set the Voice index for each track for the
-
-The Voice Index must be less than or equal to the Group Polyphony or else it will 
-never get triggered.
+5) Set the Voice index for the order in which it should play.
 
 Good Luck and happy polychaining! 
 
