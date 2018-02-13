@@ -53,7 +53,7 @@ dropdown menu.
 
 4) Set the 'Group Polyphony' to the number of tracks in your stack.
 
-5) Set the Voice index for the order in which it should play.
+5) Set the 'Voice Index' keystroke it should play on (up to the Polyphony).
 
 Good Luck and happy polychaining! 
 
