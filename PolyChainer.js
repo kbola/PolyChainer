@@ -82,28 +82,28 @@ function HandleMIDI(event)
       isPlaying = false;
   }
 
-    //Here we filter incoming note messages
-    if (event instanceof NoteOn) { 
-        if(voiceCounter === GetParameter("Voice Index") - 1){
-            heldNotes[event.pitch] = true;
-            event.send();
-        }
-        voiceCounter++;
-        voiceCounter %= GetParameter("Group Polyphony");
-    }
-    
-    //If we get a 'note off' message that this voice is holding, turn it off. 
-    else if(event instanceof NoteOff) {
-        if(event.pitch in heldNotes) {
-            event.send();
-            delete heldNotes[event.pitch];
-        }
-    }
-    
-    //pass all other MIDI else through
-    else {
-        event.send();
-    }   
+  //Here we filter incoming note messages
+  if (event instanceof NoteOn) { 
+      if(voiceCounter === GetParameter("Voice Index") - 1){
+          heldNotes[event.pitch] = true;
+          event.send();
+      }
+      voiceCounter++;
+      voiceCounter %= GetParameter("Group Polyphony");
+  }
+  
+  //If we get a 'note off' message that this voice is holding, turn it off. 
+  else if(event instanceof NoteOff) {
+      if(event.pitch in heldNotes) {
+          event.send();
+          delete heldNotes[event.pitch];
+      }
+  }
+  
+  //pass all other MIDI else through
+  else {
+      event.send();
+  }   
     
 }
 
