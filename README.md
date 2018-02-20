@@ -38,7 +38,7 @@ If this happens, you can reset their internal state by sending MIDI Note 0 to th
 # HOW TO INSTALL:
 
 Install PolyChainer on your system by placing the PolyChainer.pst file in:
-/Users/<your username>/Music/Audio Music Apps/Plug-In Settings/Scripter/
+/Users/{your username}/Music/Audio Music Apps/Plug-In Settings/Scripter/
 
 # HOW TO USE:
 
