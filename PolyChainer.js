@@ -1,31 +1,34 @@
 /*
 
-PolyChainer BETA 0.0.1
+PolyChainer BETA 0.0.2
 by Karl Scholz
 Bolasol, Inc.
 
+https://bolasol.com/polychainer
+
 */
 
+
 //HEEEERE'S THE CODE!
+
+var MAX_POLYPHONY = 8;
+
+//On screen controls
+var PluginParameters = [{name:"Group Polyphony", type:"lin", defaultValue:4, minValue:1, maxValue:MAX_POLYPHONY, numberOfSteps:MAX_POLYPHONY - 1}, {name:"Voice Index", type:"lin", defaultValue:1, minValue:1, maxValue:MAX_POLYPHONY, numberOfSteps:MAX_POLYPHONY - 1}];
+
+//Count notes in
+var voiceCounter = 0;
+
+//Keep track of held notes for this voice
+var heldNotes = {};
 
 //Called whenever a MIDI event happens
 function HandleMIDI(event)
 {
 
-    //reset voices when sequencer starts
-  var info = GetTimingInfo();
-  if(info.playing){
-        if(!isPlaying){
-      voiceIndex = 0;
-      isPlaying = true;
-    }
-  } 
-  else {
-      isPlaying = false;
-  }
-
   //Here we filter incoming note messages
   if (event instanceof NoteOn) { 
+
       if(voiceCounter === GetParameter("Voice Index") - 1){
           heldNotes[event.pitch] = true;
           event.send();
@@ -36,29 +39,24 @@ function HandleMIDI(event)
   
   //If we get a 'note off' message that this voice is holding, turn it off. 
   else if(event instanceof NoteOff) {
+
+      //Listen for MIDI Note 0 to reset the voiceCounter if needed
+      if(event.pitch === 0){
+        voiceCounter = 0;
+      }
+
       if(event.pitch in heldNotes) {
           event.send();
           delete heldNotes[event.pitch];
       }
   }
   
-  //pass all other MIDI else through
+  //pass all other MIDI through
   else {
       event.send();
   }   
     
 }
-
-var voiceCounter = 0;
-var heldNotes = {};
-var isPlaying = false;
-
-//lets Logic know that our script needs timeline info
-NeedsTimingInfo = true;
-
-//On screen controls
-var PluginParameters = [{name:"Group Polyphony", type:"lin", defaultValue:4, minValue:1, maxValue:8, numberOfSteps:7}, {name:"Voice Index", type:"lin", defaultValue:1, minValue:1, maxValue:8, numberOfSteps:7}];
-
 
 //LICENSE INFO:
 

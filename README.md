@@ -1,40 +1,39 @@
 # PolyChainer
 
-PolyChainer BETA 0.0.1
+PolyChainer BETA 0.0.2
 by Karl Scholz
 Bolasol, Inc.
 
-INTRO:
-PolyChainer lets you play multiple instrument channels in Logic X as if they were voices
+https://bolasol.com/polychainer
+
+PolyChainer lets you play multiple instrument channels in Logic Pro X as if they were voices
 of a single polyphonic instrument. 
 
-# Back story:
+# Background and context:
 
-Logic X lets you create 'Track Stacks' that are groups of individual instruments.
+Logic Pro X lets you create 'Track Stacks' that are groups of individual instruments.
 
 The Track Stack allows us to easily send the same MIDI info to all of the 
 instruments in the stack at once.
 
+Track stacks are useful for layering instruments and creating submixes from groups of tracks.
+
+With the help of Logic Pro X's MIDI FX Scripter plugin, we can also achieve poly chaining with minimal headache!
+
 # Enter PolyChainer:
 
-PolyChainer sits on each track and has a kind of 'quite understanding' as to how it should behave. 
+A PolyChainer sits on each track in the stack and filters the incoming MIDI.
 
-A track's PolyChainer assumes that it is playing part in a bigger game.
+You'll tell each PolyChainer how big the group is and where the individual track falls in line.
 
-Good news! You make the rules.
+Voice 1 will be triggered first, then voice 2, 3, 4, etc.
 
-PolyChainer works as a MIDI filter that only passes the notes that are meant 
-for its track. 
+After each voice in the group has been triggered, it will wrap back to voice 1.
 
-You'll tell each track how big the group is and where it falls in line. You can lie.
+This works on the assumption that all tracks will be recieving the same MIDI. If they get differing signals, the tracks
+will fall out of sync and notes will trigger at the wrong time.
 
-Group size is 'Group Polyphony' 
-
-'Voice Index' is the position in line (or polyphonic phase).
-
-Channels with the same "Group Polyphony" and 'Voice Index' will trigger at the same time.
-
-If the 'Voice Index' is greater than the 'Group Polyphony', it won't be triggered. 
+If this happens, you can reset their internal state by sending MIDI Note 0 to the group track.
 
 # HOW TO INSTALL:
 
@@ -54,6 +53,11 @@ dropdown menu.
 4) Set the 'Group Polyphony' to the number of tracks in your stack.
 
 5) Set the 'Voice Index' for the keystroke it should play on (up to the Polyphony).
+
+It is possible for the tracks to fall out of sync if they recieve MIDI information that differs from the other tracks.
+This can happen if you select on of the tracks in the stack and send MIDI to it.
+
+You can rememdy this my sending MIDI Note 0 to the group track. All of the PolyChainers will reset their internal state.
 
 Good Luck and happy polychaining! 
 
